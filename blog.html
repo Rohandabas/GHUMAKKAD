@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Blog</title>
+  <style>
+    /* Styles for blog.html */
+    /* ... (existing styles remain unchanged) ... */
+    body {
+      background-image: url(r2.jpg);
+      font-family: Arial, sans-serif;
+      background-color: #f0f0f0;
+      margin: 0;
+      padding: 0;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      height: 100vh;
+    }
+
+    h1 {
+      margin-bottom: 20px;
+      color: #333;
+    }
+
+    #blogContent {
+      width: 60%;
+      padding: 20px;
+      background-color: #fff;
+      border: 1px solid #ccc;
+      border-radius: 5px;
+      box-shadow: 0 0 5px rgba(0, 0, 0, 0.1);
+      word-wrap: break-word;
+    }
+  </style>
+</head>
+<body>
+  <h1>Blog Post</h1>
+  <div id="blogContent"></div>
+
+  <script>
+    // Retrieve the blog content from local storage
+    const savedContent = localStorage.getItem('blogContent');
+    const blogContentDiv = document.getElementById('blogContent');
+
+    if (savedContent) {
+      const blogPostElement = document.createElement('div');
+      blogPostElement.textContent = savedContent;
+      blogContentDiv.appendChild(blogPostElement);
+    } else {
+      blogContentDiv.textContent = 'No blog post available.';
+    }
+    
+  </script>
+</body>
+</html>

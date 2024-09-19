@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Blog Post</title>
+  <style>
+    /* Styles for index.html */
+    /* ... (existing styles remain unchanged) ... */
+    body {
+      background-image: url(r1.jpg);
+      font-family: Arial, sans-serif;
+      background-color: #f0f0f0;
+      margin: 0;
+      padding: 0;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      height: 100vh;
+    }
+
+    h1 {
+      margin-bottom: 20px;
+      color: #333;
+    }
+
+    textarea {
+      width: 60%;
+      height: 200px;
+      padding: 10px;
+      border: 1px solid #ccc;
+      border-radius: 5px;
+      resize: vertical;
+      margin-bottom: 20px;
+    }
+
+    button {
+      padding: 10px 20px;
+      border: none;
+      border-radius: 5px;
+      background-color: #007bff;
+      color: #fff;
+      cursor: pointer;
+      transition: background-color 0.3s ease;
+    }
+
+    button:hover {
+      background-color: #0056b3;
+    }
+  </style>
+</head>
+<body>
+  <h1>Write a Blog Post</h1>
+  <textarea id="blogPost" placeholder="Write your blog post here..."></textarea>
+  <button id="submitPost">Submit</button>
+
+  <script>
+    // Function to handle blog post submission
+    function submitPost() {
+      const blogContent = document.getElementById('blogPost').value;
+
+      if (!blogContent.trim()) {
+        alert('Please write something for your blog post!');
+        return;
+      }
+
+      localStorage.setItem('blogContent', blogContent);
+      window.location.href = 'blog.html';
+    }
+
+    // Add event listener to the submit button
+    document.getElementById('submitPost').addEventListener('click', submitPost);
+
+    function submitPost() {
+      const blogContent = document.getElementById('blogPost').value;
+
+      if (!blogContent.trim()) {
+        alert('Please write something for your blog post!');
+        return;
+      }
+
+      localStorage.setItem('blogContent', blogContent);
+      localStorage.setItem('latestBlogContent', blogContent);
+
+      window.location.href = 'blog.html';
+    }
+
+    document.getElementById('submitPost').addEventListener('click', submitPost);
+  </script>
+</body>
+</html>
